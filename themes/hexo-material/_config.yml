@@ -86,8 +86,8 @@ fonts: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "
 sns:
     email: Contact me
     twitter: "https://twitter.com/BlenderViking"
-    facebook: "https://www.facebook.com/facebook"
-    googleplus: "https://www.google.com/"
+    facebook: 
+    googleplus: 
     weibo: 
     instagram: 
     tumblr: 
@@ -138,3 +138,5 @@ busuanzi:
     all_site_uv: false
     post_pv: false
     busuanzi_pure_mini_js: "https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
+
+google_analytics: "UA-6717439-7"
