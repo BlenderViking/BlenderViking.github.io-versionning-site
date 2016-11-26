@@ -181,4 +181,4 @@ And it's work :)
 
 ![Floating Action Button Menu](https://cloud.githubusercontent.com/assets/5410525/20630801/7e9e4ccc-b333-11e6-966f-1615059a8597.png "Floating Action Button Menu in NewPipe")
 
-PS: If you needing an Android support bellow `minSdkVersion=4` check [here](https://github.com/str4d/android-floating-action-button ). 
+PS: If you needing an Android support bellow `minSdkVersion=4` check [here](https://github.com/str4d/android-floating-action-button). 
