@@ -70,7 +70,7 @@ You just need to add the _**Android Floating Action Button**_ lib on your gradle
 ```
 #### 2. Layout's files
 
-##### [floating_menu.xml](https://github.com/TeamNewPipe/NewPipe/pull/382/commits/0daddb0be368c5eca03bb7a28ee45b2e142358e6#diff-072d9bc0942227ebc66d3d6a064a240d)
+##### [floating_menu.xml](https://github.com/BlenderViking/NewPipe/blob/5b2ada744f49d056c2a786e6bf50e14c4ba2716c/app/src/main/res/layout/floating_menu.xml)
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -152,6 +152,8 @@ private void initFloatingActionButtonMenu() {
         public void onClick(View view) {
             floatingActionsMenu.collapse();
         }
+
+
     });
 
     final FloatingActionButton actionAddToQueueAndPlay = (FloatingActionButton) findViewById(R.id.action_replace_queue);
@@ -163,26 +165,38 @@ private void initFloatingActionButtonMenu() {
         public void onClick(View view) {
             floatingActionsMenu.collapse();
         }
-    });
 
+
+    });
+    
     final View backgroundOpac = findViewById(R.id.floating_menu_background);
     backgroundOpac.setOnClickListener(new View.OnClickListener() {
-        @Override
+    
+    @Override
+    
+    
         public void onClick(View view) {
             floatingActionsMenu.collapse();
         }
+
+
     });
 
     floatingActionsMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
         @Override
+    
+    
         public void onMenuExpanded() {
             backgroundOpac.setVisibility(View.VISIBLE);
         }
-
         @Override
+    
+    
         public void onMenuCollapsed() {
             backgroundOpac.setVisibility(View.GONE);
         }
+
+
     });
 
 }
