@@ -207,4 +207,10 @@ And it's work :)
 
 ![Floating Action Button Menu](/images/how-to-build-an-android-floating-action-button-menu-1.png "Floating Action Button Menu in NewPipe")
 
-PS: If you needing an Android support with `minSdkVersion=4` check [here](https://github.com/str4d/android-floating-action-button). 
+PS: If you needing an Android support with `minSdkVersion=4` check [here](https://github.com/str4d/android-floating-action-button).
+
+## References
+
+ - [android-design-support-library-fab-menu](https://stackoverflow.com/questions/30699302/android-design-support-library-fab-menu)
+ - [floating-action-button-and-white-background](https://stackoverflow.com/questions/27992058/floating-action-button-and-white-background)
+ - [android-floating-action-button](https://github.com/futuresimple/android-floating-action-button)
