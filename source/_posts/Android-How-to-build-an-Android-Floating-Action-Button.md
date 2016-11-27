@@ -4,6 +4,7 @@ tags:
   - Android
   - Material Design
 date: 2016-11-26 13:20:42
+thumbnail: '/images/how-to-build-an-android-floating-action-button-menu.png'
 ---
 
 
@@ -72,55 +73,56 @@ You just need to add the _**Android Floating Action Button**_ lib on your gradle
 ##### [floating_menu.xml](https://github.com/TeamNewPipe/NewPipe/pull/382/commits/0daddb0be368c5eca03bb7a28ee45b2e142358e6#diff-072d9bc0942227ebc66d3d6a064a240d)
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<com.getbase.floatingactionbutton.FloatingActionsMenu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/multiple_actions_menu"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom|end"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentEnd="true"
-    app:layout_anchorGravity="center_vertical|right"
-    app:fab_addButtonColorNormal="@color/black"
-    app:fab_addButtonColorPressed="@color/half_black"
-    app:fab_addButtonPlusIconColor="@color/white"
-    app:fab_labelStyle="@style/menu_labels_style"
-    app:fab_expandDirection="up"
-    android:layout_marginBottom="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginEnd="16dp"
-    tools:showIn="@layout/activity_playlist_external">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/action_record_to_local_playlist"
+    <View
+        android:id="@+id/floating_menu_background"
+        android:visibility="gone"
+        android:background="#55000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/multiple_actions_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fab_icon="@drawable/nnf_ic_create_new_folder_white_24dp"
-        app:fab_colorNormal="@color/black"
-        app:fab_title="Record Playlist"
-        app:fab_colorPressed="@color/half_black" />
+        android:layout_gravity="bottom|end"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        app:layout_anchorGravity="center_vertical|right"
+        app:fab_addButtonColorNormal="@color/black"
+        app:fab_addButtonColorPressed="@color/half_black"
+        app:fab_addButtonPlusIconColor="@color/white"
+        app:fab_labelStyle="@style/menu_labels_style"
+        app:fab_expandDirection="up"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp">
 
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/action_add_to_queue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fab_icon="@drawable/ic_queue_white_24dp"
-        app:fab_colorNormal="@color/black"
-        app:fab_title="Add into existing queue"
-        app:fab_colorPressed="@color/half_black" />
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_add_to_queue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_queue_white_24dp"
+            app:fab_colorNormal="@color/black"
+            app:fab_title="Add into existing queue"
+            app:fab_colorPressed="@color/half_black" />
 
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/action_replace_queue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fab_icon="@drawable/ic_headset_white_24dp"
-        app:fab_colorNormal="@color/black"
-        app:fab_title="Listing in background"
-        app:fab_colorPressed="@color/half_black" />
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_replace_queue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_headset_white_24dp"
+            app:fab_colorNormal="@color/black"
+            app:fab_title="Listing in background"
+            app:fab_colorPressed="@color/half_black" />
 
-</com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+</RelativeLayout>
 ```
 
 Don't forgive to add on your [parent layout](https://github.com/BlenderViking/NewPipe/blob/0daddb0be368c5eca03bb7a28ee45b2e142358e6/app/src/main/res/layout/activity_playlist_external.xml#L88) the xml inclusion of the new layout :
@@ -140,17 +142,6 @@ Add create the method for init the FloatingActionButton menu (call inside your i
 private void initFloatingActionButtonMenu() {
 
     final FloatingActionsMenu floatingActionsMenu = (FloatingActionsMenu) findViewById(R.id.multiple_actions_menu);
-
-    final FloatingActionButton actionRecordToLocalPlaylist = (FloatingActionButton) findViewById(R.id.action_record_to_local_playlist);
-    actionRecordToLocalPlaylist.setOnClickListener(new View.OnClickListener() {
-
-               @Override
-        
-        
-        public void onClick(View view) {
-            floatingActionsMenu.collapse();
-        }
-    });
 
     final FloatingActionButton actionAddToQueue = (FloatingActionButton) findViewById(R.id.action_add_to_queue);
     actionAddToQueue.setOnClickListener(new View.OnClickListener() {
@@ -173,12 +164,33 @@ private void initFloatingActionButtonMenu() {
             floatingActionsMenu.collapse();
         }
     });
+
+    final View backgroundOpac = findViewById(R.id.floating_menu_background);
+    backgroundOpac.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            floatingActionsMenu.collapse();
+        }
+    });
+
+    floatingActionsMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
+        @Override
+        public void onMenuExpanded() {
+            backgroundOpac.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public void onMenuCollapsed() {
+            backgroundOpac.setVisibility(View.GONE);
+        }
+    });
+
 }
 
 ```
 
 And it's work :)
 
-![Floating Action Button Menu](https://cloud.githubusercontent.com/assets/5410525/20630801/7e9e4ccc-b333-11e6-966f-1615059a8597.png "Floating Action Button Menu in NewPipe")
+![Floating Action Button Menu](/images/how-to-build-an-android-floating-action-button-menu-1.png "Floating Action Button Menu in NewPipe")
 
-PS: If you needing an Android support bellow `minSdkVersion=4` check [here](https://github.com/str4d/android-floating-action-button). 
+PS: If you needing an Android support with `minSdkVersion=4` check [here](https://github.com/str4d/android-floating-action-button). 
