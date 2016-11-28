@@ -1,6 +1,8 @@
 ---
 title: '[JAVASCRIPT] How to call a remote service with using a JSONP Proxy'
 date: 2016-11-27 21:41:13
+categories:
+ - Development
 tags: 
  - JavaScript
  - JSONP

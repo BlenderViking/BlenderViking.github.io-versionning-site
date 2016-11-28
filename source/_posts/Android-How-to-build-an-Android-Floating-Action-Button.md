@@ -1,5 +1,7 @@
 ---
 title: '[Android] How to build an Android Floating Action Button Menu'
+categories:
+ - Development
 tags:
   - Android
   - Material Design
