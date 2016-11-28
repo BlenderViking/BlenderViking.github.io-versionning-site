@@ -17,17 +17,17 @@ I discovered that it didn't work directly by Ajax request because Microsoft does
 
 ![CORS](/images/JavaScript-How-to-call-a-remote-service-with-using-a-JSONP-Proxy-1.png "The CORS error")
 
+## JSONP Proxy service
+
 So we needing a solution for resolve the _**Cross-Origin Request Blocked**_ on my browser
 
 ```
 Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing).
 ```
 
-## JSONP Proxy service
+The solution for retrieve the expected json is use a public _**JSONP Proxy service**_ like [yql](https://developer.yahoo.com/yql/) (provide by Yahoo).
 
-The solution for retrieve the expected json, is use a public _**JSONP Proxy service**_ like [yql](https://developer.yahoo.com/yql/) (provide by Yahoo).
-
-### Code sample
+## Code sample
 ```javascript
     var url = '//query.yahooapis.com/v1/public/yql' + 
         '?q=' + encodeURIComponent('select * from json where url=@url') +
@@ -41,3 +41,8 @@ The solution for retrieve the expected json, is use a public _**JSONP Proxy serv
 And it's work :-)
 
 ![The sample is working](/images/JavaScript-How-to-call-a-remote-service-with-using-a-JSONP-Proxy-2.png "The sample work's :-)")
+
+## References
+- [YQL](https://developer.yahoo.com/yql/)
+- [CORS Header](https://www.html5rocks.com/en/tutorials/cors/) 
+- [Bing daily picture](https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1)
