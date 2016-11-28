@@ -5,7 +5,7 @@ tags:
  - JavaScript
  - JSONP
  - CORS Request
-thumbnail: 
+thumbnail: '/images/JavaScript-How-to-call-a-remote-service-with-using-a-JSONP-Proxy.png'
 ---
 
 Hi,
