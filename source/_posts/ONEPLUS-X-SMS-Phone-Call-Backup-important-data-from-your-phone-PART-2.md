@@ -2,11 +2,11 @@
 title: '[Android Backup] Backup important data from your phone - Part 2 : SMS / MMS / Phone call'
 date: 2016-12-05 12:30:13
 categories:
-- Custom Android Rom
+    - Custom Android Rom
+    - Backup Android
 tags: 
-- Android
-- TWRP
-- Custom Recovery
+    - Android
+    - Backup
 thumbnail: '/images/ONEPLUS-X-How-to-install-TWRP/backup/sms/logo.png'
 ---
 
